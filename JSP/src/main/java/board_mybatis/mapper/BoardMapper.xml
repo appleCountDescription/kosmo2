@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+ 
+<mapper namespace="BoardMapper"> 
+
+	<!-- 전체 레코드 검색 -->
+	<select id="getBoardList" resultType="board_mybatis.model.BoardRec">
+		SELECT article_id AS articleId, group_id AS groupId, sequence_no AS sequenceNo, posting_date AS postingDate, read_count AS readCount, writer_name AS writerName, password AS password, title AS title, content AS content FROM article ORDER BY SEQUENCE_NO DESC
+	</select>
+	
+	<select id="getBoardListByPK" parameterType="hashmap" resultType="board_mybatis.model.BoardRec">
+		SELECT article_id AS articleId, group_id AS groupId, sequence_no AS sequenceNo, posting_date AS postingDate, read_count AS readCount, writer_name AS writerName, password AS password, title AS title, content AS content FROM article
+		<where>
+			<if test="articleId != null">
+				article_id = #{articleId}
+			</if>
+		</where>
+		ORDER BY SEQUENCE_NO DESC
+	</select>
+
+
+	<!-- 지정된 게시글의 그룹번호에 들어갈 시퀀스 값을 검색하기 -->
+	<select id="seqGroupId" resultType="int">
+  		select seq_group_id_article.nextval from dual
+	</select>
+
+	<!-- 게시글 테이블의 article_id(글번호)의 시퀀스 값을 검색하기 -->
+	<select id="seqIdAriticle" resultType="int">
+  		select seq_article_id_article.currval from dual
+	</select>
+	
+
+
+  <!-- 레코드 입력 -->
+	<insert id="insertBoard" parameterType="board_mybatis.model.BoardRec"> 
+		INSERT INTO article (ARTICLE_ID, GROUP_ID, SEQUENCE_NO, POSTING_DATE, READ_COUNT, WRITER_NAME, title, password, content)
+  		VALUES(SEQ_ARTICLE_ID_ARTICLE.nextval, #{groupId}, #{sequenceNo}, sysdate, 0, #{writerName}, #{title}, #{password}, #{content})
+	</insert>
+
+
+
+ <delete id="deleteBoard" parameterType="board_mybatis.model.BoardRec">
+	DELETE FROM article WHERE article_id = #{articleId}
+ </delete>  
+
+ <update id="updateBoard" parameterType="board_mybatis.model.BoardRec">
+	UPDATE article 
+	SET title = #{title}, content = #{content}
+	WHERE article_id = #{articleId} 
+ </update> 
+
+ <update id="increaseReadCount" parameterType="board_mybatis.model.BoardRec">
+	UPDATE article 
+	SET read_count=read_count+1 
+	WHERE article_id=#{articleId} 
+ </update> 
+ 
+   <!-- 	부모레코드의 자식레코드 중 마지막 레코드의 순서번호를 검색
+	     ( 제일 작은 번호값이 마지막값임) -->
+	<select id="selectLastNumber" parameterType="hashmap"
+   		resultType="string">
+		<![CDATA[
+			SELECT min(sequence_no) as minseq 
+			FROM article 
+			WHERE  sequence_no < #{maxSeqNum} 
+	    	AND	sequence_no >= #{minSeqNum}
+		]]>
+	</select>
+ 
+</mapper>

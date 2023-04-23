@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+ 
+<mapper namespace="CommentMapper"> 
+
+<!-- resultMap / resultType : 이것만 우선은 이용 -->
+ <select id="selectComment" parameterType='hashmap' resultType="Comment"> 
+	select  comment_no 		AS  commentNo,
+			user_id    		AS  userId,
+			comment_content AS  commentContent,
+			reg_date		AS  regDate
+	from comment_tab
+	<where>
+		<if test="commentNo != null">
+			comment_no = #{commentNo}
+		</if>
+		<if test="user_id != null">
+			user_id LIKE '%${user_id}%'
+		</if>
+		<if test="comment_content != null">
+			comment_content LIKE '%${comment_content}%'
+		</if>
+	</where>
+ </select> 
+ 
+<select id="countComment" resultType="int">
+	SELECT count(*) cnt FROM comment_tab
+</select>
+ 
+ <!-- 
+ 	페이징 방식
+ 		1. 오라클		- hint
+ 					- row_number()
+ 					
+ 		2. 마이바티즈	: Rowbounds()
+ 		
+ 		3. 다른 DB	: limit
+ 		
+ 		4. 스프링부트 등 그 외 페이징 방식 있음
+ 		
+ 	그러나, 우리는 날코딩으로 합니다!
+  -->
+<select id= "selectCommentPage" parameterType="hashmap" resultType="Comment">
+<![CDATA[
+	SELECT *
+	FROM comment_tab
+	WHERE comment_no IN (
+    	SELECT comment_no
+      	FROM ( SELECT rownum rnum, comment_no FROM ( SELECT rownum, comment_no FROM comment_tab ORDER BY comment_no DESC ) )
+      	WHERE rnum>=#{startRow} AND rnum<=#{endRow}
+   		)
+	ORDER BY comment_no DESC
+]]>
+</select>
+ 
+ 
+ 
+ 		<!-- comment_no 		AS  commentNo,
+		user_id    		AS  userId,
+		comment_content AS  commentContent,
+		reg_date		AS  regDate -->
+ 
+ 
+<!--  <select id="selectCommentByPK" parameterType="hashmap" resultType="Comment"> 
+	select *
+	from comment_tab
+	where comment_no = #{commentNo}
+ </select>   -->
+ 
+ <insert id="insertComment" parameterType="Comment"> <!-- 반환할 거 없으니 result 필요 없음 -->
+	INSERT INTO comment_tab
+	VALUES(#{commentNo}, #{userId}, #{commentContent}, sysdate)
+ </insert>  
+ 
+ <!-- 
+ 	Statement : ${}
+ 	PreparedStatement : #{}
+  -->
+  
+ <delete id="deleteComment" parameterType="Comment">
+	DELETE FROM comment_tab WHERE comment_no = #{commentNo}
+ </delete>  
+ 
+ <update id="updateComment" parameterType="Comment">
+	UPDATE comment_tab 
+	SET comment_content=#{commentContent}, user_id=#{userId}
+	WHERE comment_no = #{commentNo}
+ </update>  
+ 
+</mapper>
+ 
+
