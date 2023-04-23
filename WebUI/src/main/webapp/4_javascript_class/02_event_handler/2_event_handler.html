@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 핸들러 연결 </title>
+
+<script type="text/javascript">
+window.onload = function(){	// 이게 있어야지 밑의 메소드가 실행됨
+	var b = document.getElementById('btn');	// id가 밑에 있으니깐, 원래 순서상 이 function이 밑에 있어야 함
+	b.onclick = function() {
+		alert('이벤트');
+	}
+}
+</script>
+
+  </head>
+ <body>
+	<input type='button' value='눌러'  id='btn' />
+
+ </body>
+
+
+</html>

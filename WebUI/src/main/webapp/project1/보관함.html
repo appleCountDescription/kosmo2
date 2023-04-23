@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>보관함</title>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- css_보관함 연결 -->
+<link rel="stylesheet" href="./css/css_보관함.css">
+<!-- jquery 연결 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<!-- 외부 부트스트랩 연결 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<!-- js_보관함 연결 -->
+<script src="./js/js_보관함.js"></script>
+
+
+</head>
+
+
+<body>
+<p id='mod'>모드</p>
+<!-- 보관/찾기 form의 이름을 'frm'로 지정 -->
+<form name='frm'>
+<!-- fieldset를 사용하여 'frm'폼 안에 있는 내용을 그룹화,fieldset의 id는 'set'으로 설정하여 고유식별자 지정 -->
+<fieldset id='set'>
+
+<legend id='setHead'><b>             보관/찾기</b></legend>
+<div id='btnDiv'>
+<!-- 보관/찾기 버튼 생성 -->
+<button type="button" class="btn btn-primary saveBtn"><b>보관</b></button>
+<button type="button" class="btn btn-primary saveBtn2"><b>찾기</b></button>
+</div>
+</fieldset>
+</form>
+<!-- iframe 생성 넓이 : 1500 높이 : 800 src : ifram.html  -->
+<iframe id="iframe" class="iframe" name="iframe" width="1500" height="800" src="iframe.html"></iframe>
+
+
+</body>
+</html>

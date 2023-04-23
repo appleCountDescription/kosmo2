@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Number 형과 형변환 </title>
+<script type="text/javascript">
+
+
+// 1. 숫자 형식 메소드 
+var su = 123.456789;
+document.writeln( su.toExponential(2)  + "<br/>" );	//1.23 곱하기 10의 2승
+document.writeln( su.toFixed(3)  + "<br/>" );	//3번째 소수점에서 반올림
+document.writeln( su.toFixed(7) + "<br/>" );	//7번째 소수점에서 반올림
+document.writeln( su.toPrecision(6)  + "<br/>" );	//6번째 수에서 반올림
+document.writeln( su.toPrecision(10)  + "<br/>" );	//10번째 수에서 반올림
+
+//-------------------------------------------------
+// 2. 형변환
+var n = '0770';
+document.writeln( typeof n + '<br/>');
+document.writeln( parseInt(n) + '<br/>');
+document.writeln( Number(n) + '<br/>');
+document.writeln( parseFloat(n) + '<br/>');
+
+document.writeln( typeof parseInt(n) + '<br/>');
+document.writeln( typeof Number(n) + '<br/>');
+
+var n = '0770.123';
+document.writeln( typeof n + '<br/>');
+document.writeln( parseInt(n) + '<br/>');
+document.writeln( Number(n) + '<br/>');
+document.writeln( parseFloat(n) + '<br/>');
+
+var n = 'a770.123';
+document.writeln( typeof n + '<br/>');	// 문자열 취급
+document.writeln( parseInt(n) + '<br/>');	// NaN: Not a Number
+document.writeln( Number(n) + '<br/>');
+document.writeln( parseFloat(n) + '<br/>');
+
+document.writeln('맛점합시다' + '<br/>');
+
+//*형변환
+// 숫자 + 문자열 => 문자열
+var v = 123 + '4';
+document.writeln( v + '<br/>');
+document.writeln( typeof v + '<br/>' );
+
+//숫자 - 문자열 => 숫자
+var v = 123 - '4';
+document.writeln( v + '<br/>');
+document.writeln( typeof v + '<br/>' );
+
+
+/*
+ * 	컴파일 언어: c, java
+ 		java -> class
+ 		c 	 -> obj
+ 		
+ 	인터프리터 언어: javascript, python
+ 	
+ 		
+ */
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

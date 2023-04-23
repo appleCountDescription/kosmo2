@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>리터럴 함수</title>
+</head>
+<body>
+	<script>
+
+	// @ function 명령은 정적인 구조이고, 
+	// @ 함수리터럴은 실행시 판단한다.
+	
+/*
+	document.writeln('삼각형의 면적은 2 ' +  triangle2(4,3) + '</br>');
+	function triangle2 ( base, height ){
+				return base * height / 2;
+	}
+		document.writeln('삼각형의 면적은 ' +  triangle(4,3) + '</br>');		
+		var triangle = function( base, height ){
+			return base * height / 2;
+		} 	// 리터럴은 반드시 출력을 뒤에서
+*/
+	
+	// @ 함수는 데이터형의 일종이다.
+	/*
+	function triangle3 ( base, height ){
+				return base * height / 2;
+	}
+	document.writeln('삼각형의 면적은 ' +  triangle3(4,3) + '</br>');
+	document.writeln('삼각형의 면적은 ' +  triangle3 + '</br>');
+	
+	triangle3 = 10000;
+	document.writeln('변수의 값 ' + triangle3 + '</br>');
+	
+	function doA(){
+		document.write('함수 A 호출 <br/>');
+	}
+	
+	function doB(){
+		document.write('함수 B 호출 <br/>');
+	}
+	
+	var arr = [doA, doB];
+	doA();
+	
+	arr[0]();
+	*/
+	
+	function f4(x, y, z){
+		return z( x() + y() );
+	}
+	
+	var f1 = function() { return 2; }
+	var f2 = function() { return 1; }
+	var f3 = function(a) { return a * a; }
+	
+	var result = f4(f1, f2, f3);
+	document.write('결과: ' + result + '<br/>');
+	
+	var result2 = f4(function() { return 2; },	// f1 선언하는 대신 그냥 함수 자체를 넣어버림
+					 function() { return 1; },	// f2 선언하는 대신 그냥 함수 자체를 넣어버림
+					 function(a) { return a * a; }); //f3 선언하는 대신 그냥 함수 자체를 넣어버림
+	document.write('결과2: ' + result2 );
+	
+	
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 새로운 for 문장 </title>
+<script type="text/javascript">
+
+var  arr = ['송혜교', '김태희', '전지현' ];
+
+// 0. 원래 for
+// *************** int 안 됨
+for( var i=0; i<arr.length; i++ ){
+	document.write(arr[i] + '<br/>');
+}
+
+document.write('<br/>');
+
+/*
+ * 자바의 향상된 for
+ 	for(요소변수 : 집합변수){}
+ */
+
+
+// 1. for...in :  요소를 순서대로 처리하기
+for(var i in arr){	// i에 요소가 아닌 인덱스가 담김
+	document.write(i + '<br/>');
+	document.write(arr[i] + '<br/>');
+}
+ document.write('<br/>');
+
+//----------------------------------------------------
+// 2. for...of  (es6) : 열거형의 요소를 순서대로 처리하기
+for(var i of arr){	// i 안에 arr 요소가 담김, 향상된 for문과 비슷
+	document.write(i + '<br/>');
+}
+
+
+//------------------
+//[연습]
+
+document.write('<table border="2">');
+	for(var i=0; i<5; i++){
+	document.write('<tr>');
+		for(var	j=0; j<4; j++){
+			document.write('<td>' + '안녕' + '</td>');
+		}
+	document.write('</tr>');
+	}
+document.write('</table>');
+
+
+
+
+document.write('<table border="2">');
+for(var i=0; i<5; i++){
+document.write('<tr>');
+	for(var	j=1; j<=5; j++){
+		document.write('<td>' + (i*5+ j) + '</td>'); // 괄호 해줘야지 계산함
+	}
+document.write('</tr>');
+}
+document.write('</table>');
+
+
+var num=1;
+document.write('<table border="2">');
+for(var i=0; i<5; i++){
+	document.write('<tr>');
+		for(var	j=0; j<5; j++){
+			document.write('<td>' + num + '</td>'); // 괄호 해줘야지 계산함
+			num++
+		}
+	document.write('</tr>');
+}
+document.write('</table>');
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

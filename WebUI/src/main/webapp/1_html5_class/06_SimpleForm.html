@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>06_SimpleForm.html</title>
+</head>
+<body>
+<!-- 
+	<form> 속성
+		action: 서버의 파일로 사용자 입력값(선택값)을 넘겨주는 서버 내 파일
+		method: 전송방식
+			- get(default): url에 parameter가 넘어감(비밀번호 같은 parameter가 넘어가면 절대 안 됨 + 엄청 많은 데이터도 안 됨 + 파일업로딩도 안 됨)
+			- post: http 전송방식의 body에 데이터(parameter)를 넘겨줌
+ -->
+	<form action="xxxx.jsp" method='post'>
+		<fieldset>
+			<legend>회원가입</legend>
+			<ol>
+				<li>
+					<label for='ename'>이름</label> 
+					<input type='text' name='ename' id='ename'>
+				</li>
+				<li>
+					<label for='gender'>성별</label> 
+					<input type='radio' value='남자' class='gender' name='gender' id='gender'checked='checked'>남자 
+					<input type='radio' value='여자' class='gender' name='gender' id='gender'>여자
+				</li>
+				<li>
+					<label for='job'>직업:</label> 
+					<select name='job' id='job'>
+						<option>프로그래머</option>
+						<option>출판편집자</option>
+						<option>작곡가</option>
+					</select></li>
+				<li>
+					<label for='hobby'>취미</label> 
+					<input type='checkbox' value='독서' name='hobby' id='hobby' checked='checked'>독서 
+					<input type='checkbox' value='영화감상' name='hobby' id='hobby'>영화감상 
+					<input type='checkbox' value='작곡' name='hobby' id='hobby'>작곡 
+					<input type='checkbox' value='유튜브시청' name='hobby' id='hobby'>유튜브시청
+				</li>
+				<li>
+					<label for='amoureux/euse'>애인</label> 
+					<input type='radio' name='amoureux/euse' id='amoureux/euse'> 있다 
+					<input type='radio' name='amoureux/euse' id='amoureux/euse'> 없다
+				</li>
+				<li>
+					<input type='submit' value='확인'>
+					<input type='reset' value='취소'>
+				</li>
+				<li>
+					<label for='favorite'>가고픈 나라</label>
+					<input type='text' name='favorite' list='favorite'/>
+					<datalist id='favorite'>
+						<option>프랑스</option>
+						<option>브라질</option>
+						<option>인도네시아</option>
+					</datalist>
+				</li>
+				
+
+			</ol>
+		</fieldset>
+
+	</form>
+
+</body>
+</html>

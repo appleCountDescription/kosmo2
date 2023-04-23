@@ -1,0 +1,47 @@
+<!-- 
+	인자있는 자바스크립스 함수 호출
+	
+	[연습] 이벤트 핸들러 방식이나 이벤트 리스너 방식으로 수정하세요 
+ -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 화면 색 바꾸기3 </title>
+</head>
+<body>
+	<form name="frm">
+		<input type="button" value="스타일 A" id='btn_a'>
+		<input type="button" value="스타일 B" id='btn_b'>
+		<input type="button" value="스타일 C" id='btn_c'>
+	</form>
+	<ul>
+		<li><a href="http://www.cnn.com"> 여기는 미쿡 </a></li>
+		<li><a href="http://news.bbc.co.uk"> 여기는 영쿡 </a></li>
+	</ul>
+	
+	<!-- 
+			일반적으로 JavaScript는 < head > 안에 기술하는  방법을 많이 씁니다.
+			그러나 필요에 따라 < body > 태그 안에 사용도 합니다.
+			물론, 지금은 그럴 필요가 없지만 < body > 태그 안에 넣어봤음.
+	 -->
+	<script type="text/javascript">
+	var a = document.getElementById('btn_a');
+	var b = document.getElementById('btn_b');
+	var c = document.getElementById('btn_c');
+	
+	a.onclick = function() {
+		document.bgColor = "orange";
+	}
+
+	b.onclick = function() {
+		document.bgColor = "yellow";
+	}
+
+	c.onclick = function() {
+		document.bgColor = "aliceblue";
+	}
+	</script>
+</body>
+</html>

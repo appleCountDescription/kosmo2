@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 변수와 범위</title>
+	<script>
+
+	//(1)글로벌 변수와 지역변수
+	// -var 생략하면 글로벌변수 취급
+	// -지역변수 선언은 맨 밑줄에 선언하자
+	
+	//[*]호이스팅 (hoisting) 선언문으로 끌어올린다
+	/*let scope = '글로벌';
+	 function getValue() {
+		 	//document.write('0>'+scope);// let 을 쓰면 호이스팅 대상이 아니라 그냥 에러이다
+		 	let scope = '지역'; 
+			test = "테스트";
+			return scope;
+	}
+	document.write('1>'+getValue());//지역
+	document.write('2>'+scope);//글로벌
+	document.write('2>'+ test);*/
+	
+	// var 로 선언한 지역변수 함수블록에서만 해당된다 if문 블록은 해당없다
+	// let 로 선언한 지역변수 {}안에서만 쓰이는 지역변수가 되버린다
+	if(true){
+		let i = 100;
+	}
+	document.write('i=' + i); // 이 줄이 {}안에 있으면 출력이 된다 let이 지역변수가 되어버렸기 때문에
+	
+	/* function test() {
+		var h =200;
+	}
+	//document.write('h=' + h);// 에러 변수 값 자체를 정의내리지 못함
+	
+	for(var j=0; j<3;j++){}// {}에 var j=0 이게 있었으면 지역변수였지만 ()안에 들어가 있기에 전역변수로 취급한다
+	document.write('j=' + j);// 3 */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</script>
+</head>
+
+<body>
+
+  
+ </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 연습</title>
+<!-- (스타일 바깥의 주석) -->
+<style type="text/css">
+
+/* 가중치
+	(스타일 내의 주석)
+	- 요소(태그) = (대략)1점
+	- 아이디 = 100점
+	- 클래스 = 10점
+	
+	(*) 기존 코드를 수정하지 않고, 가중치를 이용하여 변경
+*/
+	#point100 {color : blue;}
+	div{ color : red; }
+	div{ color : green; }
+		
+	.point10 { color : yellow; }
+
+	div#point100 {color : pink;}
+	body div#point100{ color: pink; }
+	
+	/* 속성으로 선택 */
+	input[type="text"] { border: 2px solid red; }
+	body p input[disabled="disabled"] { border: 2px solid blue; }
+	
+	input:first-of-type {border:2px dotted cyan;}
+	input:last-of-type {border:2px dotted green;}
+	input:last-child {border:2px dotted yellow;}
+	input:first-child {border:2px dotted gray;}
+	
+	input:nth-child(6) {border:2px dotted purple;}
+	input:nth-last-child(2) {border:2px dotted purple;}
+	
+	
+	
+</style>
+</head>
+
+<body>
+	
+	<div id="point100" class="point10">안녕하세요</div>
+	
+	
+	<p>
+		<input type="text" value="입력1">
+		<input type="checkbox"> 선택
+		<input type="radio" name="rd"  checked="checked"> 예
+		<input type="radio" name="rd"> 아니오
+		<input type="text" value="입력2" disabled="disabled">		
+		<input type="button" value="확인">
+		<input type="button" value="취소">
+	</p>
+	
+	
+</body>
+</html>

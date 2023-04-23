@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/*모드라는 글자  안보이게 */
+p {display:none;} 
+/*fieldset set 넓이 : 150 margin-left:880*/
+#set { width:150px; margin-left:880px;}
+/*보관/찾기 글자 중앙 정렬 */
+#setHead { text-align:center; }
+/* div margin-left:20 */
+#btnDiv {  margin-left:20px;}
+
+/*    아이프레임 css 영역  */
+
+/*iframe margin-top:30px; margin-left:200px; display:none */
+#iframe { margin-top:30px; margin-left:200px; display:none; }
+
+/*보관함 버튼 칸*/
+td.info {  text-align:center; line-height:200px; vertical-align: middle; height:200px; cursor:pointer;}
+/*보관중인 보관함 */
+td.danger {  text-align:center; line-height:200px; vertical-align: middle; height:200px; cursor:pointer;}
+/*메인 테이블*/
+#mainTable {width:100%;}
+
+/* 비번 설정 란  */
+#exampleInputPassword1 {margin-left:30px; margin-top:30px; cursor:pointer;}
+#exampleInputPassword2 {margin-left:30px; margin-top:30px; cursor:pointer;}
+/* 비밀번호 입력 칸 */
+.form-control { width:250px;}
+
+/* 비번 유효성 검사 */
+#worning {margin-left:30px; border: 0px; width:100%; color:red; display:none;}
+
+/*  각각 숫자 버튼들*/
+.btn-sm {width:90px; height:49px; }
+/* 숫자버튼 그룹화 */
+.password {width:52; height:10;  margin-top:50px; margin-left:10px; display:none;}
+/* 숫자버튼 그룹화 */
+.password2 {width:52; height:10;  margin-top:50px; margin-left:10px; display:none;}
+
+/*보관함 이름 높이 : 200 */
+#smol {line-height:200px;}
+/*보관함 20번 칸 line-height:420 height : 420 */
+#big {line-height:420px; height : 420;}
+/* 보관 /비밀번호를 한번 더 입력하시오를 누르면 나오는 키패드*/
+.passwordUnder {width:52; height:10;  margin-top:50px; margin-left:10px; display:none;}
+/* 찾기 /비밀번호를 한번 더 입력하시오를 누르면 나오는 키패드*/
+.password2Under {width:52; height:10;  margin-top:50px; margin-left:10px; display:none;}

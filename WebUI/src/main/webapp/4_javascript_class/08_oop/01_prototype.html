@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> Javascript 객체지향 </title>
+</head>
+<body>
+<script>
+/*	
+ * (1) 함수
+ 		- 선언
+ 				function func(){ }
+ 				var func = function(){ }
+ 		- 호출
+ *				func();
+ 		
+   (2) 클래스
+   		- 선언
+   				function Student(){ }	// 클래스는 대문자로 쓰자
+   				var Student = function(){ }
+   		- 객체 생성
+ * 				var s = new Student();
+ */
+
+
+
+
+//0. 	클래스 선언 -  생성자로 초기화하기
+/*
+function Student(id, name, dept){
+	this.id = id;
+	this.name = name;
+	this.dept = dept;
+	
+	this.display = function(){
+		var str  = "학번: "+id;
+		str += "/이름:" + name;
+		str += "/학과:" + dept + "<br/>"; 
+		return   str;
+	}
+}
+
+var kim = new Student("001","김길동", "컴공");
+var lee = new Student("002","이길동", "경영");
+
+document.write( kim.display() );
+document.write( lee.display() );
+*/
+
+// Student 클래스 선언
+//  생성자로 이름, 국어, 영어, 수학점수를 받아서 멤버변수에 지정
+//  멤버함수로 sum() 함수 구현: 전체 과목들을 더해서 리턴
+
+//function Student(name, kor, eng, math){
+	
+let Student = function(name, kor, eng, math){
+	this.name = name;
+	this.kor = kor;
+	this.eng = eng;
+	this.math = math;
+	
+	this.sum = function(){
+				   return kor + eng + math;
+			   }
+}
+
+var s1 = new Student("홍길자", 80, 90, 70);
+document.write(s1["name"] + "님 총점: " + s1['sum']() + "<br/>" );
+
+Student.prototype.display = function() {		// prototype: 모든 객체가 다 공유할 때
+					document.write(this.name + "님 총합> " + this.sum() + "<br/>");
+				}
+s1.display();
+
+var s2 = new Student('홍길박', 50, 50, 50);
+document.write(s2["name"] + "님 " + s2['sum']() + "<br/>" );
+
+s2.display();
+
+
+</script>
+</body>
+</html>

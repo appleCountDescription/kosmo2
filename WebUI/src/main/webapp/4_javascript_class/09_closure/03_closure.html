@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+//----------------------------------------------------------
+// 4. 지역변수를 참조하는 함수 안에 함수 클로저(closure)		
+//			전역변수는 특정 함수 몇 개만 공유하지 못하고 전체가 공유하는 변수이다.
+//			클로저는 특정 함수가 암묵적으로 다른 함수의 참조를 가지고 있기 때문에
+//			호출되는 함수가 참조하는 함수의 메모리 공간을 참조한다. (?)
+//			아무튼 클로저를 이용하여 전역변수의 사용을 줄일 수 있다
+/*
+function add(){
+	var total = 0;
+	return function(){
+		   	   total += num;
+		   	   return total;
+	       };
+}
+
+var addClosure = add();	// addClosure로 리턴값 받음
+*/
+
+var totalGlobal = 0; 	// 글로벌변수
+
+var addClosure = function(){
+					 var total = 0;
+					 return function(num){
+		 	    				 total += num;
+		   	   					 return total;
+	      		 			 };
+				 }();
+document.write( addClosure(1) + '<br/>');
+document.write( addClosure(2) + '<br/>');
+document.write( addClosure(3) + '<br/>');
+document.write( addClosure(4) + '<br/>');
+
+// document.write( total + '<br/>');
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery event</title>
+
+<style type="text/css">
+	.bg { background : yellow; }
+	.border { border : 3px dotted red; }
+	
+</style>
+
+<script src='/WebUI/5_jquery_class/lib/jquery-3.6.4.js' type="text/javascript"></script>
+
+<script type="text/javascript">
+
+$(function(){
+	
+	$('li').css({'cursor':'pointer'});
+	
+	// 원래 이벤트 연결 : bind() - 누를 때마다 실행 / one() - 딱 한 번만 실행
+	/*
+	$('li').bind('click', function(){
+		$('#result').text( $(this).text() );
+	});*/
+	
+	
+	
+	// h1 클릭 시 li 요소를 만들어 추가
+	$('h1').click(function(){
+		var li = $('<li/>').text(new Date());
+		// <li>날짜</li>
+		$('ul').append(li);
+	});
+	
+	//****************************************************
+	//동적으로 추가된 요소는 이벤트가 적용 안 됨
+	// li 요소 클릭 시 
+	//****************************************************
+	$('ul').on('click', 'li', function(){
+		$('#result').text( $(this).text() );
+	});
+	
+});
+
+</script>
+
+
+</head>
+<body>
+	<h1>제이쿼리 이벤트</h1>
+	 <ul>
+		<li>부에노스 아이레스</li>
+		<li>바르셀로나</li>
+		<li>리마</li>
+		<li>라파스</li>
+	 </ul>	
+	<div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 리스너 연결 </title>
+
+<script type="text/javascript">
+
+window.onload = function(){
+	//화면에 로딩된 후에 실행됨
+	var b = document.getElementById('btn');
+	b.addEventListener('click', function(){
+		alert('event');
+	});
+}
+
+</script>
+
+ </head>
+ <body>
+	<input type='button' value='눌러'  id='btn' />
+ </body>
+</html>

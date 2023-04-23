@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title> 첫 연습 </title>
+	
+
+<style type="text/css">
+	#here{
+		width: 400px;
+		height: 100px;
+		background: #AABB76;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+</style>
+	
+<script src='/WebUI/5_jquery_class/lib/jquery-3.6.4.js' type="text/javascript"></script>
+
+<script type="text/javascript">
+
+$(function(){
+	
+	/*
+	let h = $('#here');
+	
+	h.click(function(){
+		h.text('클릭하면 내용이 바뀜');
+	});
+		
+	h.mouseenter(function(){
+		h.text('마우스가 들어옴');
+	});
+	
+	h.hover(function(){
+		// 마우스가 들어갔을 때
+		h.css({'border':'3px solid green'})
+	}, function(){	// 첫 번째 인자도 함수
+		// 마우스가 나갔을 때
+		h.css({'border':'3px dotted yellow'})
+	});	// 두 번째 인자도 함수
+	*/
+	
+	//효과함수
+	//$('#here').fadeOut(1000).fadeIn(1000);	//fadeOut과 fadeIn을 따로 쓰지 않아도 됨
+	//$('#here').slideUp(1000);
+	//var attr = { top : 200, left : 400 };
+	$('#here').animate( { top : 200, 
+						  left : 400 } );	//attr 넣지 않고, 통으로 넣음
+
+	let stu = $('#student');
+	var age = stu.find('#age');
+	
+	age.css({'background' : '#33FF33',
+		'border' : '2px solid black',
+		'font-size' : '20px'
+	});	// 이건 객체 형식, ('background', '#33FF33'); 방식보다는 이 방식을 추천함
+	
+});	// end of $
+
+</script>
+
+</head>
+<body>
+	
+
+	<div id="here">
+	아자아자 제이쿼리~~!!! 
+	</div>
+	
+	
+	<div id="student">
+		<div id="name">홍길동</div>
+		<div id="age">34</div>
+	</div>
+
+
+	
+</body>
+</html>

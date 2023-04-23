@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery filter</title>
+
+<!--4. class 속성제어 -->
+<style type="text/css">
+	.bg { background : yellow; }
+	.border { border : 3px dotted red; }
+	.borderRed { border : 3px dotted red; }
+	.borderBlue { border : 3px dotted blue; }
+</style>
+
+<script src='/WebUI/5_jquery_class/lib/jquery-3.6.4.js' type="text/javascript"></script>
+
+<script type="text/javascript">
+
+$(function(){
+	
+	//$('ul').find('li:eq(0)').addClass('borderRed');
+	//$('li:nth-child(1)').addClass('borderRed');
+	
+	//(1) 술 목록 중에서 두 번째 찾기
+	$('ul:eq(1)').find('li:eq(1)').addClass('borderRed'); // 이거는 1이 2번째
+	
+	//(2) 음식 중 세 번째 찾기
+	$('#food').find('li:nth-child(3)').addClass('borderBlue');	// 자손은 3번이 3번째
+	
+	//(3) '튀김'을 포함하고 있는 요소 찾기
+	$('#food').find('li:contains("튀김")').addClass('bg');
+	
+});
+
+</script>
+
+</head>
+<body>
+		<h1>제이쿼리 시작</h1>
+		<h2>내가 좋아하는 음식 </h2>
+		<ul id="food">
+			<li>떡볶이</li>
+			<li>어묵</li>
+			<li>닭튀김</li>
+			<li>돼지튀김</li>
+			<li>소튀김</li>
+			<li>구두튀김</li>
+		</ul>
+		<!-- 2. 추가하고 다시 확인 -->
+		<h2>내가 좋아하는 술</h2>
+		<ul>
+			<li>와인</li>
+			<li>맥주</li>
+			<li>막걸리</li>
+			<li>소주</li>
+		</ul>
+	<div id="result"></div>
+</body>
+</html>

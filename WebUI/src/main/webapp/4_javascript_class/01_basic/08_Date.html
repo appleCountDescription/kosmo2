@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Date 객체</title>
+<script type="text/javascript">	
+
+	var d = new Date('2023/08/15');
+	document.writeln( d  + '<br/>');
+	document.writeln( d.getYear()  + '<br/>'); // 쓰면 안 됨
+	document.writeln( d.getFullYear()  + '<br/>'); // 이거 써야 함
+	document.writeln( d.getMonth()+1  + '<br/>'); // 원하는 달 구하려면 +1 구해야 함
+	document.writeln( d.getDate()  + '<br/>');
+	document.writeln( d.getDay()  + '<br/>');	// 일요일은 0, 화요일이 2
+
+	var d = new Date();
+	document.writeln( '<hr/><hr/>');
+	document.writeln( d  + '<br/>'); // 쓰면 안 됨
+	document.writeln( d.toLocaleString()  + '<br/>'); // 2023
+	document.writeln( d.toGMTString()  + '<br/>'); // 4
+	document.writeln( d.toDateString()  + '<br/>'); // 6
+
+	var d = new Date();
+	document.writeln( '<hr/><hr/>');
+	d.setFullYear(2020);
+	d.setMonth(11)+1;
+	d.setDate(25);
+	document.writeln(d.toDateString() + '<br/>');
+	// 함수를 이용해서
+	//2022년 12월 25일
+
+	var d = new Date();
+	document.writeln( '<hr/><hr/>');
+	//(1) 30일 후 날짜 출력
+	d.setDate(d.getDate() + 30);
+	document.writeln(d + '<br/>');
+	
+	//(2) 20일 전 날짜 출력
+	d.setDate(d.getDate() - 20);
+	document.writeln(d + '<br/>');
+	
+	var d = new Date();
+	d.setDate(0);
+	document.writeln(d + '<br/>');
+	
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>

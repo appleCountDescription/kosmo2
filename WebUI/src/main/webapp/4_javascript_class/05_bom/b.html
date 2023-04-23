@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 새로 열려진 창 </title>
+<script type="text/javascript">
+/*
+	window.onload = function(){	// 이게 있어야지 밑의 메소드가 실행됨
+		var sel2 = frm.city;
+		for(var i=0; i<sel2.length; i++){
+			sel2[i].onclick = function(){
+				switch(this.value){
+				case '0' : 
+					opener.frm.temp.value = '가산';
+					break;
+				case '1' : 
+					opener.frm.temp.value = '판교';
+					break;
+				case '2' : 
+					opener.frm.temp.value = '부평';
+				}
+			}
+		}
+	}*/
+	
+	window.onload = function(){
+		var sel2 = frm.city;
+		for(var i=0; i<sel2.length; i++){
+			sel2[i].onclick = function(){
+				opener.frm.temp.value = this.value;
+			};
+		}
+	}
+
+</script>
+</head>
+<body>
+	<form name="frm">
+		<input type='text' name='temp'/> <br><br>
+	
+		<input type="radio" name="city" value='가산'> 가산 <br>
+		<input type="radio" name="city" value='판교' > 판교 <br>
+		<input type="radio" name="city" value='부평'> 부평 <br>
+	</form>
+</body>
+</html>

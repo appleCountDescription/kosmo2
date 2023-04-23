@@ -1,0 +1,47 @@
+<!-- 
+	자기를 열어준 창을 제어할려면? opener
+ -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 여기가 원래 창 </title>
+
+<script type="text/javascript">
+		//3_2_window_opened.html 창을 열기
+	window.onload = function(){
+		 var winObj = window.open("b.html", "", "width=300, height=350");
+		
+		 document.getElementById('region').onclick = function(){
+			 switch(this.value){
+		 		case '0' : winObj.frm.temp.value = '서울시';
+					break;
+		 		case '1' : winObj.frm.temp.value = '울산시';
+					break;
+		 		case '2' : winObj.frm.temp.value = '제주시';
+					break;
+		 	}
+		 }
+
+	}
+		
+</script>
+
+</head>
+
+
+<body>
+	<form name = 'frm'>
+		<select name='region' id='region'>
+			<option value='0'>서울시</option>
+			<option value='1'>울산시</option>
+			<option value='2'>제주시</option>
+		</select> <br><br>
+		
+		<input type='text' name='temp'/>
+		
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 새로 열려진 창 </title>
+<script type="text/javascript">
+
+	window.onload = function(){	// 이게 있어야지 밑의 메소드가 실행됨
+		var sel = frm.site;
+		for(var i=0; i<sel.length; i++){
+			sel[i].onclick = function(){
+				switch(this.value){
+				case '0' : 
+					// 본판(이 창을 열어준 객체)에 접근
+					// *************************** opener: 본판
+					opener.location.href = "http://www.daum.net"
+					break;
+				case '1' : 
+					opener.location.href = "http://www.naver.com"
+					break;
+				case '2' : 
+					// 본판(이 창을 열어준 객체)에 접근
+					// *************************** opener: 본판
+					opener.location.href = "http://www.nate.com"
+					break;
+				}
+			}
+		}
+	}
+
+</script>
+</head>
+<body>
+	<form name="frm">
+		<input type='text' name='temp'/> <br>
+	
+		<input type="radio" name="site" value='0'> 다음 <br>
+		<input type="radio" name="site" value='1' > 네이버 <br>
+		<input type="radio" name="site" value='2'> 네이트 <br>
+	</form>
+</body>
+</html>

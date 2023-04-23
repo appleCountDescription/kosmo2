@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>◆◆ Travel Sketch ◆◆</title>
+
+<link href='css/travel.css' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" >//src= "./js/tavel.js"
+
+window.onload = function() {
+
+		
+		var adult = document.frm.adult;
+		
+		var child = document.frm.child;
+		
+		var infant = document.frm.infant;
+		
+		
+		adult.onchange = calc; //calc() 안됨 연결만 해주는 것임
+		
+		child.onchange = calc;
+		
+		infant.onchange = calc;
+		
+		
+		function calc(){
+		
+		
+		frm.totalpay.value=(adult.getAttribute('price')*adult.value)+(child.getAttribute('price')*child.value+(infant.getAttribute('price')*infant.value));
+		
+		} 
+
+frm.onsubmit= function(evt){
+	evt.preventDefault(); // 고유의 기능을 막아버림
+	
+	//유효성검사
+	var travel = document.querySelector('#travel');
+	var travel1 =document.querySelector('#travel1');
+	if(!travel.checked ){ 
+		alert('x');
+		return;	
+	}
+	if (!travel1.checked){
+		alert('x');
+		return;
+	}
+	
+	frm.submit();
+
+}
+ 
+
+}
+
+
+
+
+</script>
+
+</head>
+
+<body>
+
+<form name="frm" id='frm' method="get" action="something.jsp">
+
+<table width="800" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td><img src="img/travel_01.gif" width="800" height="102" /></td>
+
+</tr>
+
+<tr>
+
+<td height="33" background="img/travel_02.gif"></td>
+
+</tr>
+
+</table>
+
+<table width="800" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td width="233" valign="top"><table width="233" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td><img src="img/travel_reservation_01.gif" width="233" height="624" /></td>
+
+</tr>
+
+
+</table></td>
+
+<td width="567" valign="top"><table width="567" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td width="26" height="35">&nbsp;</td>
+
+<td height="35"><img src="img/travel_reservation_02.gif" width="515" height="35" /></td>
+
+<td width="26" height="35">&nbsp;</td>
+
+</tr>
+
+<tr>
+
+<td width="26">&nbsp;</td>
+
+<td valign="top"><table width="515" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td height="10" colspan="2"></td>
+
+</tr>
+
+<tr>
+
+<td width="20">&nbsp;</td>
+
+<td><img src="img/travel_reservation_03.gif" width="111" height="20" /></td>
+
+</tr>
+
+<tr>
+
+<td width="20" height="100">&nbsp;</td>
+
+<td height="100"><table width="540" border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
+
+<tr>
+
+<td width="110" height="25" bgcolor="#F7F7F7"> <div align="center"><span class="text1">성인(만12세이상)</span></div></td>
+
+<td width="190" height="25" bgcolor="#FFFFFF">
+
+<label>
+
+<input name="adult" type="number" min=1 max=100 id="adult" price='39000' required size="2" />
+
+</label>
+
+<span class="text4">명 <span class="text2">[1인당 39.000원]</span></span></td>
+
+<td width="80" height="25" rowspan="3" bgcolor="#F7F7F7"><div align="center"><span class="text1">상품합계금액</span></div></td>
+
+<td width="100" height="25" rowspan="3" bgcolor="#FFFFFF"><span class="text4">=</span>
+
+<input name="totalpay" type="text" id="totalpay" value="0" size="10" readonly/>원</td>
+
+</tr>
+
+<tr>
+
+<td width="110" height="25" bgcolor="#F7F7F7"><div align="center"><span class="text1">아동(만12세미만)</span></div></td>
+
+<td width="190" height="25" bgcolor="#FFFFFF"><input name="child" type="number" min=0 max=100 id="child" price='29000' size="2" />
+
+<span class="text4">명</span><span class="text4"> <span class="text2">[1인당 29.000원]</span></span> </td>
+
+</tr>
+
+<tr>
+
+<td width="110" height="25" bgcolor="#F7F7F7"><div align="center"><span class="text1">유아(만 2세이상)</span></div></td>
+
+<td width="190" height="25" bgcolor="#FFFFFF"><input name="infant" type="number" min=0 max=100 id="infant" price='19000' size="2" />
+
+<span class="text4">명 <span class="text2">[1인당 19.000원]</span></span></td>
+
+</tr>
+
+</table></td>
+
+</tr>
+         </table></td>
+            </tr>
+          <tr>
+            <td width="20" height="40">&nbsp;</td>
+            <td height="40"><table width="540" border="0" cellpadding="0" cellspacing="1" bgcolor="#8FCBD8">
+              <tr>
+                <td height="30" bgcolor="#D0EDF3"><div align="center"><span class="text3">혼자 객실을 이용시 싱글 추가요금, 또는 추가사항에 따라서 추가요금이 발생합니다.</span></div></td>
+              </tr>
+            </table></td>
+            </tr>
+         
+          <tr>
+            <td width="20" height="50" valign="top">&nbsp;</td>
+            <td height="50" valign="top"><div align="center" class="text1">
+                  <label>
+                  <input type="checkbox" name="travel" id="travel" />
+                  </label>
+              여행약관에 동의합니다. 
+              <input type="checkbox" name="travel1" id="travel1" />
+              개인정보보호정책에동의합니다.</div></td>
+            </tr>
+   
+            
+          <tr>
+            <td width="20">&nbsp;</td>
+            <td><img src="img/travel_reservation_04.gif" width="111" height="20" /></td>
+            </tr>
+          <tr>
+            <td width="20">&nbsp;</td>
+            <td><table width="560" border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
+              <tr>
+                <td width="80" height="25" bgcolor="F7F7F7"><span class="text1">한글이름</span></td>
+                <td width="170" height="25" bgcolor="#FFFFFF">
+                <input name="name" type="text" id="name" size="6"  pattern="[ㄱ-힣]{2,5}" required /><br/>
+                  <input name="radio" type="radio" id="mans" value="radio" checked="checked"  />
+                  <span class="text1">남자</span>  
+                  <input type="radio" name="radio" id="girls" value="radio" />
+                   <span class="text1"> 여자  </span></td>
+                <td width="80" height="25" bgcolor="F7F7F7" class="text1">영문성/이름</td>
+                <td width="170" height="25" bgcolor="#FFFFFF">
+                <input name="firstname" type="text" id="firstname" size="8" pattern="[A-Za-z]{3,}" required />
+                  <span class="text1">/</span>
+                    <input name="secondname" type="text" id="secondname" size="6" pattern="[A-Za-z]{3,}" required /></td>
+              </tr>              
+              <tr>
+                <td width="80" height="25" bgcolor="F7F7F7"><span class="text1">전화번호</span></td>
+                <td width="170" height="25" bgcolor="#FFFFFF">
+                  <span class="text1">
+                  <input name="tel1" type="text" id="tel1" size="2" pattern="[0-9]{3,}" required /> - 
+                  <input name="tel2" type="text" id="tel2" size="3" pattern="[0-9]{4,}" required /> -
+                  <input name="tel3" type="text" id="tel3" size="3" pattern="[0-9]{4,}" required />
+                  </span></td>
+                <td width="80" height="25" bgcolor="F7F7F7" class="text1">이메일주소</td>
+                <td width="170" height="25" bgcolor="#FFFFFF"><input name="addr" type="email" id="addr" size="18" required /></td>
+              </tr>
+              <tr>
+                <td width="80" height="25" bgcolor="F7F7F7"><span class="text1">여권관련정보</span></td>
+                <td height="25" colspan="3" bgcolor="#FFFFFF"><select name="passport" class="text1" id="passport">
+                  <option>:::여권유무:::</option>
+                                                </select> 
+                  <span class="text1">여권번호 
+                  <input name="passportnum" type="text" id="passportnum" size="12" />
+                  여권만료일 
+                  <input name="pastport_end" type="text" id="pastport_end" size="12" />
+                  </span></td>
+                </tr>
+              <tr>
+                <td width="80" height="25" bgcolor="F7F7F7"><span class="text1">비자관련정보</span></td>
+                <td height="25" colspan="3" bgcolor="#FFFFFF"><select name="visa" class="text1" id="visa">
+                  <option>:::비자유무:::</option>
+                                                </select> 
+                  <span class="text1">비자만료일</span> <span class="text1">
+                  <input name="visa_end" type="text" id="visa_end" size="12" />
+                  </span></td>
+                </tr>
+              <tr>
+                <td width="80" height="25" bgcolor="F7F7F7"><span class="text1">리턴연장여부</span></td>
+                <td height="25" colspan="3" bgcolor="#FFFFFF">
+                <input name="radio1" type="radio" id="yes" value="radio" checked="checked" />
+                  <span class="text1">예 
+                  <input name="radio1" type="radio" id="no" value="radio" />
+                  아니오 현지출발예정일
+                  <input name="hungi" type="text" id="hungi" size="10" />
+                  </span> 
+                  
+                  <span class="text1">관광진흥기금
+                  <select name="fund" class="fund" id="fund">
+                    <option>▷포함</option>
+                                    </select>
+                  </span></td>
+                </tr>
+              <tr>
+                <td width="80" height="25" bgcolor="F7F7F7"><span class="text1">상세주소</span></td>
+                <td height="25" colspan="3" bgcolor="#FFFFFF"><span class="text1">
+                  <input name="address" type="text" id="address" size="50" /> 
+                  전체주소입력
+                </span></td>
+                </tr>
+              <tr>
+                <td width="80" height="25" bgcolor="F7F7F7"><span class="text1">고객요청사항</span></td>
+                <td height="25" colspan="3" bgcolor="#FFFFFF"><span class="text1">
+                  <input name="customer" type="text" id="customer" size="55" />
+                </span></td>
+                </tr>
+            </table></td>
+            </tr>
+          <tr>
+            <td width="20">&nbsp;</td>
+            <td><table width="230" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td colspan="6">&nbsp;</td>
+                </tr>
+              <tr>
+                <td><input type="submit" value="바로 결제하기" width="84" height="27" /></td>
+                <td width="2">&nbsp;</td>
+                <td><img src="img/travel_button_02.gif" width="71" height="27" /></td>
+                <td width="2">&nbsp;</td>
+                <td><img src="img/travel_button_03.gif" width="71" height="27"/></td>
+              </tr>
+              <tr>
+                <td colspan="6">&nbsp;</td>
+                </tr>
+            </table></td>
+            </tr>
+
+        </table></td>
+        <td width="26">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="37" colspan="2" bgcolor="#000000"></td> 
+  </tr>
+</table>
+</form>
+</body>
+</html>

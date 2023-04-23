@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>00_object.html</title>
+
+<script type = 'text/javascript'>
+
+// 1. 
+/*
+var obj1 = { name : '홍길순',
+			 age : 33,
+			 display(){
+			 	return this.name + "님은 " + this.age + "세입니다";	 
+			 	}
+			 };	// 객체
+*/
+/*
+var obj1 = { name : '홍길순',
+		 age : 33,
+		 display : function(){
+		 	return this.name + "님은 " + this.age + "세입니다2";	 
+		 	}
+		 };	
+console.log(obj1);		 
+document.write( obj1.display() + '<br/>' );
+document.write( obj1['display']() + '<br/>' );
+*/
+
+/*
+var obj2 = { name : '홍길순',
+		 	 age : 33};	
+obj2.display = function() {
+					return this.name + "님은 " + this.age + "세입니다3";
+			   }
+document.write( obj2.display() + '<br/>' );
+document.write( obj2['display']() + '<br/>' );
+*/
+var obj2 = {}
+obj2.name = '홍길순';
+obj2.age = 33;	
+obj2.display = function() {
+				return this.name + "님은 " + this.age + "세입니다3";
+		   }
+document.write( obj2.display() + '<br/>' );
+document.write( obj2['display']() + '<br/>' );
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

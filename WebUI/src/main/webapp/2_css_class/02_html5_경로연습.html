@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>02_html5_경로연습</title>
+</head>
+<body>
+
+	<h2>절대경로</h2>
+	<ul>
+		<li><a href='/WebUI/media/IU.mp4'>동영상파일</a></li>
+		<li><a href='/WebUI/images/sample/sensitive.jpg'>이미지파일</a></li>
+		<li><a href='/WebUI/1_html5_class/02_html5_list.html'>웹문서</li>
+	</ul>
+	
+	
+	<h2>상대경로</h2>
+	<ul>
+		<li><a href='../media/IU.mp4'>동영상파일</a></li>
+		<li><a href='../images/sample/sensitive.jpg'>이미지파일</a></li>
+		<li><a href='02_html5_list.html'>웹문서</li>
+	</ul>
+	
+	<hr>	<!-- <hr></hr>: 선 -->
+	</hr>
+	<img src="/WebUI/images/new/road1.jpg" alt="구름 몇 점 없는 푸르른 하늘, 녹음진 오솔길에 인접한 에메랄드빛 해안가가 있다. 바닷물이 약하게 들어왔다 나갔다 하며 회색 돌을 적신다. 지평선 너머로 외딴 섬이 하나 보인다. " width="500" height="600">	
+	<img src="../images/new/road1.jpg" alt="" width="500" height="600">	
+	
+	
+	<video width="320" height="240" controls>
+	<source src="movie.ogg" type="video/ogg">
+  	<source src="/WebUI/media/IU.mp4" type="video/mp4">
+	Your browser does not support the video tag.
+	</video>
+	
+	<video width="320" height="240" controls>
+	<source src="movie.ogg" type="video/ogg">
+  	<source src="../media/IU.mp4" type="video/mp4">
+	Your browser does not support the video tag.
+	</video>
+	
+	<iframe width="420" height="345" 
+	src="http://www.nate.com">
+	</iframe>
+
+	<iframe width="420" height="345" 
+	src="https://www.youtube.com/embed/t8dhw1TFQLI">
+	</iframe>
+
+	
+	
+
+</body>
+</html>

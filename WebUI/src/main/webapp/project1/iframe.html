@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>보관함 창</title>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- css_보관함 연결 -->
+<link rel="stylesheet" href="./css/css_보관함.css">
+<!-- jquery 연결 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<!-- 외부 부트스트랩 연결 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<!-- jquery.cookie 연결 -->
+<script type="text/javascript"   src="js/jquery.cookie.js"></script>
+<!-- js_보관함 연결 -->
+<script src="./js/js_보관함.js"></script>
+</head>
+
+<body>
+<!-- 보관함 버튼 칸 생성 테이블 -->
+<form class='frm1'>
+<table id="mainTable" class="table table-bordered">
+ <tr id="tr1" class="info">
+ <!-- 보관함 버튼 칸 첫번째 줄 생성 -->
+ <td id="1" class="info"><b id = 'smol'>1번</b></td>
+ <td class="info"><b id = 'smol'>2번</b></td> 
+ <td class="info"><b id = 'smol' >3번</b></td>
+ <td class="info"><b id = 'smol' >4번</b></td>
+ <td class="info"><b id = 'smol' >5번</b></td>
+ </tr>
+ <!-- 보관함 버튼 칸 두번째 줄 생성 -->
+  <tr class="info">
+ <td class="info"><b id = 'smol'>6번</b></td>
+ <td class="info"><b id = 'smol'>7번</b></td>
+ <td class="info"><b id = 'smol'>8번</b></td>
+ <td class="info"><b id = 'smol'>9번</b></td>
+ <td class="info"><b id = 'smol'>10번</b></td>
+ </tr>
+ <!-- 보관함 버튼 칸 세번째 줄 생성 -->
+  <tr class="info">
+ <td class="info"><b id = 'smol'>11번</b></td>
+ <td class="info"><b id = 'smol'>12번</b></td>
+ <td class="info"><b id = 'smol'>13번</b></td>
+ <td class="info"><b id = 'smol'>14번</b></td>
+ <td class="info"><b id = 'smol'>15번</b></td>
+ </tr>
+ <!-- 보관함 버튼 칸 네번째 줄 생성 -->
+  <tr class="info">
+ <td class="info"><b id = 'smol'>16번</b></td>
+ <td class="info"><b id = 'smol'>17번</b></td>
+ <td class="info"><b id = 'smol'>18번</b></td>
+ <td class="info"><b id = 'smol'>19번</b></td>
+ <!-- 20번 째 보관함은 rowspan을 써서 2개의 행을 합쳤다 -->
+ <td class="info" rowspan = '2'><b id = 'big'>20번</b></td>
+ </tr>
+ <!-- 보관함 버튼 칸 다섯번째 줄 생성 -->
+  <tr class="info">
+ <td class="info"><b id = 'smol'>21번</b></td>
+ <td class="info"><b id = 'smol'>22번</b></td>
+ <td class="info"><b id = 'smol'>23번</b></td>
+ <td class="info"><b id = 'smol'>24번</b></td>
+ </tr>
+</table>
+</form>
+<!-- 보관버튼 키패드 비밀번호 입력창  -->
+<form class='frm2'>
+   <input type="password" class="form-control pw" id="exampleInputPassword1" placeholder="비밀번호를 입력하시오" readonly>
+   <input type="password" class="form-control pw" id="exampleInputPassword2" placeholder="비밀번호를 한번 더 입력하시오" readonly>
+  <!--경고 메시지를 표시하는 데 사용하는 입력필드.초기값 비어 있지만,사용자가 입력한 비밀번호가 일치하지 않으면 필드에 경고 메시지가 표시--> 
+   <input type="text" id="worning" readonly>
+   <!-- 보관버튼 키패드 생성 테이블 / 비밀번호를 입력하시오를 누르면 뜨는 비밀번호 키패드-->
+   <table class='password'>
+      <tbody>
+      <!-- 보관버튼 비밀번호 키패드 첫번째 줄 버튼  -->
+         <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm a">1</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">2</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">3</button></td>
+         </tr>
+         <!-- 보관버튼 비밀번호 키패드 두번째 줄 버튼 -->
+          <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm a">4</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">5</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">6</button></td>
+         </tr>
+         <!-- 보관버튼 비밀번호 키패드 세번째 줄 버튼 -->
+         <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm a">7</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">8</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">9</button></td>
+         </tr>
+         <!-- 보관버튼 비밀번호 키패드 네번째 줄 버튼  -->
+        <tr>
+          <!-- 취소 누를 시 입력값 삭제하는 버튼 --> 
+            <td> <button type="button" class="btn btn-primary btn-sm cancle">취소</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">0</button></td>
+            <!-- 물품보관시 쿠키에 정보 저장하는 submit 버튼-->
+            <td><button type="button" id="submit" class="btn btn-primary btn-sm t">확인</button></td>
+         </tr>
+      </tbody>
+   </table>
+   <!-- 비밀번호를 한번 더 입력하시오를 누르면 뜨는 비밀번호 키패드 / 보관버튼 키패드 생성 테이블 -->
+   <table class='passwordUnder'>
+      <tbody>
+      <!-- 보관버튼 비밀번호 키패드 첫번째 줄 버튼  -->
+         <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm a2">1</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">2</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">3</button></td>
+         </tr>
+         <!-- 보관버튼 비밀번호 키패드 두번째 줄 버튼  -->
+          <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm a2">4</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">5</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">6</button></td>
+         </tr>
+         <!-- 보관버튼 비밀번호 키패드 세번째 줄 버튼  -->
+         <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm a2">7</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">8</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">9</button></td>
+         </tr>
+         <!-- 보관버튼 비밀번호 키패드 네번째 줄 버튼  -->
+        <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm cancle2">취소</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">0</button></td>
+            <td><button type="button" id="submit1-2" class="btn btn-primary btn-sm t">확인</button></td>
+         </tr>
+      </tbody>
+   </table>
+   <!-- 찾기 버튼을 눌렀을 때 뜨는 비밀번호 키패드 / 비밀번호를 입력하시오를 누르면 뜨는 비밀번호 키패드 -->
+    <table class='password2'>
+      <tbody>
+      <!-- 찾기버튼 비밀번호 키패드 첫번째 줄 버튼  -->
+         <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm a">1</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">2</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">3</button></td>
+         </tr>
+         <!-- 찾기버튼 비밀번호 키패드 두번째 줄 버튼  -->
+          <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm a">4</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">5</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">6</button></td>
+         </tr>
+         <!-- 찾기버튼 비밀번호 키패드 세번째 줄 버튼  -->
+         <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm a">7</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">8</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">9</button></td>
+         </tr>
+         <!-- 찾기버튼 비밀번호 키패드 네번째 줄 버튼  -->
+        <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm cancle">취소</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a">0</button></td>
+            <td><button type="button" id="submit2" class="btn btn-primary btn-sm t">찾기</button></td>
+         </tr>
+      </tbody>
+   </table>
+   <!-- 찾기 버튼을 눌렀을 때 뜨는 비밀번호 키패드 /  비밀번호를 한번 더 입력하시오를 누르면 뜨는 비밀번호 키패드 -->
+    <table class='password2Under'>
+      <tbody>
+      <!-- 찾기버튼 비밀번호 키패드 첫번째 줄 버튼  -->
+         <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm a2">1</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">2</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">3</button></td>
+         </tr>
+         <!-- 찾기버튼 비밀번호 키패드 두번째 줄 버튼  -->
+          <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm a2">4</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">5</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">6</button></td>
+         </tr>
+         <!-- 찾기버튼 비밀번호 키패드 세번째 줄 버튼  -->
+         <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm a2">7</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">8</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">9</button></td>
+         </tr>
+         <!-- 찾기버튼 비밀번호 키패드 네번째 줄 버튼  -->
+        <tr>
+            <td> <button type="button" class="btn btn-primary btn-sm cancle2">취소</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm a2">0</button></td>
+            <td><button type="button" id="submit2-1" class="btn btn-primary btn-sm t">찾기</button></td>
+         </tr>
+      </tbody>
+   </table>
+  
+   
+</form>
+
+</body>
+</html>

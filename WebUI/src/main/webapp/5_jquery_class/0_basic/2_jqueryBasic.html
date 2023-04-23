@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8"/>
+	<title> 첫 연습 </title>
+<style type="text/css">
+	.active	{
+		outline : 3px solid red;
+	}
+
+</style>
+<script src='/WebUI/5_jquery_class/lib/jquery-3.6.4.js' type="text/javascript"></script>
+<script type="text/javascript">
+//남자:핑크 / 여자: 녹색 백그라운드
+$(function(){
+	$('.man').css({'background' : 'pink'});
+	$('.woman').css({'background' : 'lightgreen'});
+	
+	// class input 찾아서 변수 redbox
+	var redBox = $('input.inputText');
+	
+	redBox.focus(function(){
+		//redBox.addClass('active');
+		$(this).addClass('active');	// 이걸 해야 이벤트가 발생한 애한테만 focus가 옴
+	});
+	
+	redBox.blur(function(){		//focus의 반댓말: blur
+		$(this).removeClass('active');	//add의 반댓말: remove
+	});
+	
+	
+	//[3] ***************************************
+	/*
+		*<태그></태그> 사이의 값: text()나 html() 사용
+		
+		*<input 태그의 value 값> : val()
+		
+		@ setter, getter => 이름동일  ex) setText() / getText()
+		  
+	*/	
+	alert( $('#divText').text() );
+	
+	$('#divText').text('<img src="./images/grim.jpg">');
+	$('#divHtml').html('<img src="./images/grim.jpg">');
+	$('#divEmpty').empty();
+	
+	$('#changeGrim').click(function(){
+		// 속성값 처리: attr('속성명') - getter / attr('속성명', '속성값') - setter
+		// alert( $('#changeGrim').attr('src') );
+	
+		// puppy.jpg -> cat.jpg
+		var img = $('#changeGrim').attr('src').replace('puppy', 'cat');	// 'images/puppy.jpg' -> 'images/cat.jpg'
+		$('#changeGrim').attr('src', img);
+		
+		//$('#changeGrim').attr('src', 'images/cat.jpg');
+	});
+	
+	// [4] value 속성 처리 : val()
+	// 	   폼태그 안의 요소들이 가지고 있음
+	$('#tf').val('홍길동');
+	
+	$('#ta').val('메시지를 입력하세요');
+	$('#sel').val('incheon');	// 인천이 뜨도록
+	
+	// select 태그가 2개있는데, multiple은 을릉도롱 독도 동시에 
+	$('#sel_m').val(['seom2','seom3']);
+	
+	// 초기화버튼 누르면 다 원상복귀시키기
+	$('#init').click(function(){
+		$('#tf').val('');
+		$('#ta').val('');
+		$('#sel').val('');
+		$('#sel_m').val('');
+	});
+
+	// [5] 동적태그 처리
+	var actor = $('#actor');
+	var tae = $('#tae');
+	var su = $('#su');
+	var bin = $('#bin');
+	
+	// 부모, 자식 관계 : append() 혹은 appendTo()
+	actor.append(tae);
+	su.appendTo(actor);
+	
+	// 동적태그 추가
+	actor.append('<div>한배우</div>');
+	
+	var n = $('<div/>');
+	n.text('두배우');
+	actor.append(n);
+	
+	//[6]
+	/*
+	$('.data').click(function(){
+		alert( $(this).text() );
+	});
+	*/
+	$('.data').each(function(){
+		$(this).click(function(){
+			//alert( $(this).text() );
+			alert( this.innerHTML );	// 자바스크립트(jquery가 안 먹힐 때)
+		});
+	});
+	
+});
+
+	
+
+
+</script>
+
+</head>
+<body>
+	<!--  1 -->
+	<ul>
+		<li class="man">김수현</li>
+		<li class="woman">김희애</li>
+		<li class="woman">송혜교</li>
+		<li class="man">하정우</li>
+		<li class="woman">김태희</li>
+	</ul>
+	<!-- 2 -->
+	<input type="text" class="inputText"/>
+	<input type="text" class="inputText"/>
+	<input type="text" class="inputText"/>
+	
+
+	<!-- 3 -->
+		<div id="divText">여기에 글씨를</div>
+		<div id="divHtml">여기에 그림을</div>
+		<div id="divEmpty">여기를 비움</div>
+		<p>
+		<img src="images/puppy.jpg" id='changeGrim'>
+		</p>
+		
+	<!-- 4 -->	
+		<p>
+		이름 : <input id="tf" type="text" size="20" /><br/>
+		메세지 : <textarea id="ta" rows="3" cols="20"></textarea><br/>
+		주소 : <select id="sel">
+			<option value="seoul">서울</option>	<!-- option에 value 값 없어도 됨 -->
+			<option value="busan">부산</option>
+			<option value="masan">마산</option>
+			<option value="incheon">인천</option>
+		</select>
+		<select id="sel_m" multiple="multiple">
+			<option value="seom1">제주도</option>
+			<option value="seom2">울릉도</option>
+			<option value="seom3">독도</option>
+			<option value="seom4">거제도</option>
+		</select><br/>
+		<input type='button' id='check' value='확인'/>
+		<input type='button' id='init' value='초기화'/> <!--  [과제] 클릭시 값 지정하려면  -->
+		<div id='result'></div>
+		</p>
+		
+	<!-- 5 -->
+		<div id="actor">배우</div>
+		<div id="tae">김태희</div>
+		<div id="su">김수현</div>
+		<div id="bin">현빈</div>
+		<!-- [ 과제 ] 동적 테이블 만들기  -->
+
+	<!-- 6 -->
+		<div class="data">이름</div>
+		<div class="data">직업</div>
+		<div class="data">나이</div>
+
+	
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이번달1</title>
+</head>
+<body>
+	<!-- 자바스크립트에서 화면에 이번달 달력을 출력 -->
+	<script type="text/javascript">
+		var year = 2023;
+		var month = 3;
+		var day = [ '일', '월', '화', '수', '목', '금', '토' ];
+
+		document.writeln(year + '년 ' + (month + 1) + '월');
+
+		document.write('<table border="3">');
+
+		// 표의 첫 번째 행을 출력합니다.
+		document.write('<tr>');
+		for (var i = 0; i < 7; i++) {
+			document.write('<td>' + day[i] + '</td>');
+		}
+		document.write('</tr>');
+
+		// 달력의 나머지 부분을 출력합니다.
+		var d = new Date(year, month, 1);
+		var firstDay = d.getDay();
+		var lastDate = new Date(year, month + 1, 0).getDate();
+
+		document.write('<tr>');
+		for (var i = 0; i < firstDay; i++) {
+			document.write('<td></td>');
+		}
+
+		for (var i = 1; i <= lastDate; i++) {
+			var date = new Date(year, month, i);
+			var weekDay = date.getDay();
+
+			if (weekDay === 0) {
+				document.write('</tr><tr>');
+			}
+
+			document.write('<td>' + i + '</td>');
+		}
+
+		for (var i = weekDay + 1; i < 7; i++) {
+			document.write('<td></td>');
+		}
+
+		document.write('</tr>');
+
+		document.write('</table>');
+	</script>
+</body>
+</html>
